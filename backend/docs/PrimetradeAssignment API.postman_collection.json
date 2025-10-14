@@ -1,0 +1,219 @@
+{
+	"info": {
+		"_postman_id": "40394a4e-097f-4451-8948-155dcaa99d4c",
+		"name": "PrimetradeAssignment API",
+		"description": "This collection contains all API endpoints for the PrimetradeAssignment project.  \nIt includes:\n\n- User Authentication APIs (Register, Login)\n    \n- Task Management APIs (Create, Fetch, Update, Delete)\n    \n\nBase URL: [http://localhost:5000/api/v1/](http://localhost:5000/api/v1/)",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39964889"
+	},
+	"item": [
+		{
+			"name": "Register",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"name\": \"Test User\",\r\n  \"email\": \"test@example.com\",\r\n  \"password\": \"123456\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/v1/auth/register",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"register"
+					]
+				},
+				"description": "Registers a new user.\n\n🔸 Method: POST  \n🔸 URL: /api/v1/auth/register\n\n**Request Body:**\n\n- name (string) – Full name of the user\n    \n- email (string) – Unique email address\n    \n- password (string) – Minimum 6 characters\n    \n\n**Response:**  \nReturns a success message with created user details."
+			},
+			"response": []
+		},
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"email\": \"test@example.com\",\r\n  \"password\": \"123456\"\r\n}\r\n",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/v1/auth/login",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"auth",
+						"login"
+					]
+				},
+				"description": "Logs in a registered user and provides a JWT token.\n\n🔸 Method: POST  \n🔸 URL: /api/v1/auth/login\n\n**Request Body:**\n\n- email (string)\n    \n- password (string)\n    \n\n**Response:**  \nReturns a JWT token for accessing protected routes."
+			},
+			"response": []
+		},
+		{
+			"name": "Get Tasks",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sZSI6IlVzZXIiLCJpYXQiOjE3NjA0NjkyMjMsImV4cCI6MTc2MDQ3MjgyM30.npqNtrdbX-0dV9o_PGnGbDBcsNnaFc1XGGoo0ZPfhpg",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5000/api/v1/tasks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"tasks"
+					]
+				},
+				"description": "Fetches all tasks belonging to the logged-in user.\n\n🔸 Method: GET  \n🔸 URL: /api/v1/tasks\n\n**Headers:**\n\n- Authorization: Bearer\n    \n\n**Response:**  \nReturns an array of task objects created by the user."
+			},
+			"response": []
+		},
+		{
+			"name": "Create Task",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sZSI6IlVzZXIiLCJpYXQiOjE3NjA0NjkyMjMsImV4cCI6MTc2MDQ3MjgyM30.npqNtrdbX-0dV9o_PGnGbDBcsNnaFc1XGGoo0ZPfhpg",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"My First Task\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/v1/tasks",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"tasks"
+					]
+				},
+				"description": "Creates a new task.\n\n🔸 Method: POST  \n🔸 URL: /api/v1/tasks\n\n**Headers:**\n\n- Authorization: Bearer\n    \n\n**Request Body:**\n\n- title (string) – Title of the task\n    \n\n**Response:**  \nReturns the created task object."
+			},
+			"response": []
+		},
+		{
+			"name": "Update Task",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sZSI6IlVzZXIiLCJpYXQiOjE3NjA0NjkyMjMsImV4cCI6MTc2MDQ3MjgyM30.npqNtrdbX-0dV9o_PGnGbDBcsNnaFc1XGGoo0ZPfhpg",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"title\": \"Updated Task Title\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/api/v1/tasks/12",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"tasks",
+						"12"
+					]
+				},
+				"description": "Updates an existing task by its ID.\n\n🔸 Method: PUT  \n🔸 URL: /api/v1/tasks/:id\n\n**Headers:**\n\n- Authorization: Bearer\n    \n\n**Request Body:**\n\n- title (string) – Updated title for the task\n    \n\n**Response:**  \nReturns the updated task details."
+			},
+			"response": []
+		},
+		{
+			"name": "Delete Task",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sZSI6IlVzZXIiLCJpYXQiOjE3NjA0NjkyMjMsImV4cCI6MTc2MDQ3MjgyM30.npqNtrdbX-0dV9o_PGnGbDBcsNnaFc1XGGoo0ZPfhpg",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:5000/api/v1/tasks/12",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"api",
+						"v1",
+						"tasks",
+						"12"
+					]
+				},
+				"description": "Deletes a task by its ID.\n\n🔸 Method: DELETE  \n🔸 URL: /api/v1/tasks/:id\n\n**Headers:**\n\n- Authorization: Bearer\n    \n\n**Permissions:**\n\n- Requires Admin role\n    \n\n**Response:**  \nReturns a success message confirming deletion."
+			},
+			"response": []
+		}
+	]
+}
