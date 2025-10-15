@@ -138,6 +138,17 @@ backend/docs/primetradeAssignment.postman_collection.json
 
 ---
 
+## Scalability Note
+
+This project can be scaled for production by:
+- **Using a cloud database** like PostgreSQL or MongoDB Atlas instead of SQLite.
+- **Adding caching** with Redis or Memcached to improve performance.
+- **Implementing load balancing** to handle multiple server instances.
+- **Containerizing the app** using Docker for easier deployment.
+- **Using microservices architecture** for separating authentication, tasks, and other services.
+
+---
+
 ## Author
 
 - Srija Vallala
