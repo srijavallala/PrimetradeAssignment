@@ -123,20 +123,18 @@ PrimetradeAssignment/
 
 ## API Documentation
 
-You can test the APIs using Postman.
+- This collection demonstrates how each endpoint works, including sample requests, responses, and required headers or tokens.
+- The Postman collection for all API endpoints is available in the repository.
+- You can import it into Postman using the following file path:
+```bash
+backend/docs/primetradeAssignment.postman_collection.json
+```
+### Steps to view the documentation:
 
-### Import the Collection
 1. Open Postman.
-2. Click **Import** → **Upload Files**.
-3. Select `PrimetradeAssignment.postman_collection.json`.
-4. All endpoints will be available for testing.
-
-Each API request includes:
-- URL
-- Method
-- Headers (if required)
-- Example request body
-- Detailed description
+2. Click on Import.
+3. Select the file primetradeAssignment.postman_collection.json from the backend/docs folder.
+4. You will see all API endpoints with their descriptions and sample requests.
 
 ---
 
